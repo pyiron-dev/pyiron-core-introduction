@@ -1,0 +1,13 @@
+title: Introduction to the visual programming interface pyiron_core
+author: Jan Janssen
+
+execute:
+  execute_notebooks           : off
+
+repository:
+    url                       : https://github.com/pyiron-dev/pyiron-core-introduction
+    path_to_book              : ""
+
+launch_buttons:
+  notebook_interface          : jupyterlab
+  binderhub_url               : https://mybinder.org
