@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction &#8212; Introduction to the visual programming interface pyiron_core</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'introduction';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Python Interface" href="pythoninterface.html" />
+    <link rel="prev" title="pyiron_core" href="README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Introduction to the visual programming interface pyiron_core</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="README.html">
+                    pyiron_core
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythoninterface.html">Python Interface</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/pyiron-dev/pyiron-core-introduction/master?urlpath=lab/tree/introduction.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/introduction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-interface">User Interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-node">First Node</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-workflow">First Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#young-s-modulus">Young’s Modulus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-loading-workflows">Saving and Loading Workflows</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>The initial version of <a class="reference external" href="https://doi.org/10.1016/j.commatsci.2018.07.043">pyiron</a> was developed as integrated development environment (IDE) for computational materials science. It combined a Jupyterlab based user interface, with HDF5 based data storage and an interface to high performance computing (HPC) clusters. While this combination was very successful for high-throughput screening on the atomistic scale, it still required the users to learn Python programming. To address this challenge the second version of pyiron introduces a visual programming interface in addition to the Python interface to accelerate the collaboration between expert users and application specialists.</p>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h2>
+<p>The goal of this tutorial is to familiarize yourself with the visual programming interface for pyiron. To start the visual programming interface we import <code class="docutils literal notranslate"><span class="pre">pyiron_core</span></code> and then initialize the <code class="docutils literal notranslate"><span class="pre">PyironFlow</span></code> class with the and start the graphical interface by adding the extension <code class="docutils literal notranslate"><span class="pre">.gui</span></code>. The jupyter notebook cells are executed by pressing <strong>Shift</strong> and <strong>Enter</strong> at the same time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pyiron_core</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pyiron_core</span><span class="o">.</span><span class="n">PyironFlow</span><span class="p">()</span><span class="o">.</span><span class="n">gui</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "ddee11c6cdd249c7abf61a11f2e90c26", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+</section>
+<section id="user-interface">
+<h2>User Interface<a class="headerlink" href="#user-interface" title="Link to this heading">#</a></h2>
+<p><img alt="screenshot" src="_images/vpinterface.png" /></p>
+<p>On the left side of the user interface is a drop-down menu with three categories, namely:</p>
+<ul class="simple">
+<li><p><strong>Node Library</strong>: The node library contains a list of pre-defined nodes which are the building blocks to develop workflows in pyiron. In the most simple terms a node is a Python function which takes one or more arguments as an input and returns one or more outputs. You can select a node from the node library and by clicking on it it appears on the canvas on the right side.</p></li>
+<li><p><strong>Output</strong>: After evaluation of a node the output of this node is visualized in the output section of the menu on the left side.</p></li>
+<li><p><strong>Logging Info</strong>: In addition, to the output also the log is visible in the left side menu, this is espeically helpful for debugging.</p></li>
+</ul>
+<p>On the right side of the user interface you see a large canvas to construct your workflow.</p>
+<ul class="simple">
+<li><p>The canvas is provides multiple tabs to work on multiple workflows at the same time. You can add additional tabs by clicking on the plus sign on the top left of the canvas. Still, for the purpose of this tutorial we just use the first tab.</p></li>
+<li><p>Below the controls for adding new tabs are a first set of floating controls, with the following functionality:</p>
+<ul>
+<li><p>The <strong>+</strong> button to zoom in and enlarge the nodes on the workflow canvas.</p></li>
+<li><p>The <strong>-</strong> button to zoom out.</p></li>
+<li><p>The <strong>focus</strong> button with the four corners which returns the user to the existing workflow. This does not work as long as no node is located on the canvas, but once the first node was placed on the canvas this button adjusts the focus to return to the workflow.</p></li>
+<li><p>The <strong>lock</strong> button to lock and unlock the workflow. Once a workflow is locked it can no longer be modified.</p></li>
+<li><p>The <strong>refresh</strong> button to reload the workflow. For loading large workflows the canvas might need to be refreshed to visualize all nodes immediately.</p></li>
+<li><p>The <strong>save</strong> button with the outgoing arrow to store the workflow on disk.</p></li>
+<li><p>The <strong>load</strong> button to reload the workflow from disk. If the workflow was not saved previously this removes all existing nodes from your canvas.</p></li>
+<li><p>The <strong>X</strong> button to delete the current workflow from the canvas.</p></li>
+<li><p>The <strong>group</strong> button illustrated by a dashed square for grouping nodes.</p></li>
+</ul>
+</li>
+<li><p>In the top right corner of the canvas you can name your workflow. Renaming the workflow changes the name of the tab as well as the file the workflow is stored in.</p></li>
+<li><p>In the bottom right corner there is a mini map of the whole canvas to help navigating the workflow.</p></li>
+</ul>
+<p>Furthermore, once you placed a node on the canvas, there is a node menu on top of the node:</p>
+<ul class="simple">
+<li><p>The <strong>Run</strong> button evaluates the node and returns output to the <strong>Output</strong> section of the left menu.</p></li>
+<li><p>The <strong>Source</strong> button shows the Python source code of the node in the <strong>Output</strong> section of the left menu.</p></li>
+</ul>
+<p>Finally, at the very bottom towards the left side, there is a white circle indicating a slider. Using this slider you can change the ratio of the left menu and the canvas, corresponding to your screensize.</p>
+<p>All components are introduced in more detail in the following.</p>
+</section>
+<section id="first-node">
+<h2>First Node<a class="headerlink" href="#first-node" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>To construct your first workflow place the <strong>ReadCSV</strong> node on the canvas. It is located in the <strong>Node Library</strong> under <strong>basic</strong> and <strong>file</strong>.</p></li>
+<li><p>In the mandatory field for <strong>filename</strong>, which is highlighted with a red frame around it, you can enter <code class="docutils literal notranslate"><span class="pre">data/dataset_1.csv</span></code> to load the column separated value (CSV) file named <code class="docutils literal notranslate"><span class="pre">dataset_1.csv</span></code> located in the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder.</p></li>
+<li><p>Afterwards you can evaluated the node by clicking the <strong>Run</strong> button in the node menu directly on top of the node. As a result you see the output being visualized on the left side in the <strong>Output</strong> section of the left side menu.</p></li>
+<li><p>Furthermore, you can rename the node by clicking on the name <strong>ReadCSV</strong> and change it to <strong>ReadDataset</strong>. After renaming the node you can confirm the renaming by pressing enter.</p></li>
+<li><p>Finally, you can remove an existing node, either by deleting the whole workflow using the <strong>X</strong> button on the top left corner of the canvas. Or by selecting the node by clicking on it and then pressing the <strong>Backspace</strong> key on your keyboard.</p></li>
+</ul>
+<p><img alt="ReadCSV" src="_images/ReadCSV.png" /></p>
+<p>For advanced users, you can take a look at the Python source code of the <strong>ReadCSV</strong> node by clicking on the <strong>Source</strong> button of the node menu on top of the <strong>ReadCSV</strong> node. The source code is then printed to the <strong>Output</strong> section of the left side menu.</p>
+<p>The source code for the <strong>ReadCSV</strong> node is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@as_function_node</span><span class="p">(</span><span class="s2">&quot;csv&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ReadCSV</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">decimal</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">):</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="n">delimiter</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As you can see it is primarily a Python function with the <code class="docutils literal notranslate"><span class="pre">&#64;as_function_node</span></code> decorator from the <code class="docutils literal notranslate"><span class="pre">pyiron_core</span></code> package. In addition, the import statement for the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> package is placed inside the function to separate the namespace and minimize conflicts.</p>
+</section>
+<section id="first-workflow">
+<h2>First Workflow<a class="headerlink" href="#first-workflow" title="Link to this heading">#</a></h2>
+<p>In the previous step you executed one workflow node, now the next step is combining two workflow nodes to build the first workflow.</p>
+<ul class="simple">
+<li><p>Select the <strong>ConvertLoadToStress</strong> node from the left side menu under <strong>Node Library</strong> in the module <strong>experiment</strong> and the sub module <strong>youngs_modulus</strong>. It is placed right under the <strong>ReadCSV</strong> node you created previously.</p></li>
+<li><p>Move the new <strong>ConvertLoadToStress</strong> node to the right side of the <strong>ReadCSV</strong> node, leaving a bit of room between them to connect them.</p></li>
+<li><p>Click on the <strong>black dot</strong> on the right side of the <strong>ReadCSV</strong> node next to the letters <strong>csv</strong> which represents the output channel of this node. By clicking on it the black dot is highlighted in light blue and you can start drawing a connection line from the black dot next to <strong>csv</strong> on the <strong>ReadCSV</strong> node to the black dot <strong>df</strong> on the left side of the <strong>ConvertLoadToStress</strong> node.</p></li>
+<li><p>In case you made a wrong connection, then you can click on the <strong>black line</strong> indicating the connection between two nodes and again delete it by clicking the <strong>Backspace</strong> key.</p></li>
+<li><p>For the second mandatory input named <strong>area</strong> of the <strong>ConvertLoadToStress</strong> node enter <strong>120</strong>.</p></li>
+<li><p>After both inputs <strong>df</strong> and <strong>area</strong> of the <strong>ConvertLoadToStress</strong> node are successfully connected or filled with manual entries, you can call <strong>Run</strong> on the <strong>ConvertLoadToStress</strong> node. This evaluates both the <strong>ReadCSV</strong> node and the <strong>ConvertLoadToStress</strong> node and returns the output in the <strong>output</strong> section of the left side menu.</p></li>
+</ul>
+<p><img alt="ConvertLoadToStress" src="_images/convertloadtostress.png" /></p>
+</section>
+<section id="young-s-modulus">
+<h2>Young’s Modulus<a class="headerlink" href="#young-s-modulus" title="Link to this heading">#</a></h2>
+<p>In this example, we will use a very common use case in Materials Science, which is to use data from a <a class="reference external" href="https://en.wikipedia.org/wiki/Tensile_testing">tensile test</a> to calculate the <a class="reference external" href="https://en.wikipedia.org/wiki/Young%27s_modulus">Young’s modulus</a>.</p>
+<p>We start from a datafile in csv format. The file containes data from a tensile test of typical S355 (material number: 1.0577) structural steel (designation of steel according to DIN EN 10025-2:2019). The data were generated in the <a class="reference external" href="https://zenodo.org/communities/bam">Bundesanstalt für Materialforschung und -prüfung (BAM)</a> in the framework of the digitization project <a class="reference external" href="https://www.materialdigital.de/">Innovationplatform MaterialDigital (PMD)</a> which, amongst other activities, aims to store data in a semantically and machine understandable way.</p>
+<section id="references">
+<h3>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Schilling, M., Glaubitz, S., Matzak, K., Rehmer, B., &amp; Skrotzki, B. (2022). Full dataset of several mechanical tests on an S355 steel sheet as reference data for digital representations (1.0.0) <a class="reference external" href="https://doi.org/10.5281/zenodo.6778336">Data set</a></p></li>
+</ul>
+<p>Let’s start with the visualisation of how such a workflow would look like:</p>
+<img src="img/workflow-dpg.png" width="700">
+<p>In the tensile test experiment, the force (load) and elongation values are recorded, and saved in a csv file which forms the dataset. We would like to read in this dataset, and convert the load and elongation to stress and strain. Then we plot the results, and calculate a the Young’s modulus, which is the slope of the linear, elastic part of the stress-strain curve. Your calculation could depend on the value of this strain-cutoff that is used, which is something we will explore.</p>
+<div class="admonition note" name="html-admonition" style="background: #FFEDD1; padding: 10px">
+<p class="title"><b>Note</b></p>
+Note that the stress and strain used in this notebook are actually <a href="https://en.wikipedia.org/wiki/Stress%E2%80%93strain_curve">engineering stress and strain</a>
+</div>
+<p><img alt="calculateYoungModulus" src="_images/calculateYoungModulus.png" /></p>
+<p>The workflow is created by comining four nodes:</p>
+<ul class="simple">
+<li><p><strong>ReadCSV</strong> node from the <strong>basic</strong> module in the <strong>Node Library</strong> under the sub module <strong>file</strong> to read a CSV file and convert it to a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> DataFrame. In this example we set the <strong>filename</strong> parameter of the <strong>ReadCSV</strong> node to <code class="docutils literal notranslate"><span class="pre">data/dataset_1.csv</span></code> and leave the rest of the parameters with their default values.</p></li>
+<li><p><strong>ConvertLoadToStress</strong> node from the <strong>experiment</strong> module in the <strong>Node Library</strong> under the sub module <strong>youngs_modulus</strong> to convert the strain to stress. The <strong>ConvertLoadToStress</strong> node has to inputs the <strong>df</strong> input which is connected to the <strong>csv</strong> output of the <strong>ReadCSV</strong> node and the <strong>area</strong> which is set to <code class="docutils literal notranslate"><span class="pre">120</span></code>.</p></li>
+<li><p><strong>CalculateYoungsModulus</strong> node again from the <strong>experiment</strong> module in the <strong>Node Library</strong> under the sub module <strong>youngs_modulus</strong> to calculate the Young’s modulus by fitting the strain and stress. The <strong>strain</strong> input and the <strong>stress</strong> input of the <strong>CalculateYoungsModulus</strong> are both connected to the <strong>strain</strong> output and <strong>stress</strong> output of the <strong>ConvertLoadToStress</strong> node. The remaining input parameter <strong>strain_cutoff</strong> can remain at the default value of <code class="docutils literal notranslate"><span class="pre">0.2</span></code>.</p></li>
+<li><p><strong>Plot</strong> node again from the <strong>experiment</strong> module in the <strong>Node Library</strong> under the sub module <strong>youngs_modulus</strong> to visualize the stress strain dependence in an xy-plot with the x-axis being the strain and the y-axis being the stress. The <strong>strain</strong> input and the <strong>stress</strong> input of the <strong>Plot</strong> node are both connected to the <strong>strain</strong> output and <strong>stress</strong> output of the <strong>ConvertLoadToStress</strong> node. The remaining input parameter <strong>format</strong> can remain at the default value of <code class="docutils literal notranslate"><span class="pre">-</span></code> which refers to a line plot in <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> the underlying library for the <strong>Plot</strong> node.</p></li>
+</ul>
+</section>
+</section>
+<section id="saving-and-loading-workflows">
+<h2>Saving and Loading Workflows<a class="headerlink" href="#saving-and-loading-workflows" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>After the creation of the workflow the workflow can be renamed by typing the name <code class="docutils literal notranslate"><span class="pre">YoungsModulus</span></code> as one word without spaces in the text field in the top right corner of the canvas. The name is confirmed by pressing <strong>Enter</strong>. After renaming the workflow the name of the tab is automatically changed.</p></li>
+<li><p>By pressing the arrow pointing to the top in the menu in the top left corner of the canvas the workflow is saved. The workflow is saved as JSON file in <code class="docutils literal notranslate"><span class="pre">~/pyiron_core_data/workflows</span></code>. This JSON format is compatible to the <a class="reference external" href="https://doi.org/10.1039/D5DD00231A">Python Workflow Definition</a> so the same workflow can be used with other workflow engines.</p></li>
+<li><p>After saving the workflow you can clear the canvas by pressing the <strong>X</strong> button in the menu in the top left corner of the canvas.</p></li>
+<li><p>To reload the workflow you can now use the button with the arrow pointing downwards. The workflow is reloaded based on the name of the Workflow. So by entering a different name in the top right corner of the canvas you can load a differnt workflow.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">pyiron_core</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pythoninterface.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python Interface</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#user-interface">User Interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-node">First Node</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-workflow">First Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#young-s-modulus">Young’s Modulus</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-loading-workflows">Saving and Loading Workflows</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jan Janssen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
