@@ -3,3 +3,4 @@ root: README
 chapters:
 - file: introduction.ipynb
 - file: pythoninterface.ipynb
+- file: quantumespresso.ipynb
